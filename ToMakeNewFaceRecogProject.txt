@@ -1,0 +1,28 @@
+With javacv it's easier to move facerec project, at least it doesn't require
+ndk build to implement c++ code (as in the facedetect sample and many ndk-dependent opencv samples
+where one had to add the ndk directory's path as variable to Preferences / C/C++ / Build / Environment 
+and name it 'NDKROOT').
+
+To start a new facerecognition based project based on the opencv sample,
+you only need to:
+
+1. (!) copy the whole content of the 'libs' folder (and add the jars to the build path):
+	- javacv.jar
+	- javacpp.jar
+	- armeabi-v7a folder containing all the pre-generated javacv/cpp .so methods
+
+
+2. add opencv library in Properties / Android etc
+
+
+And the the usual stuff:
+
+3. add other usual dependencies eg. appcompat_v7_4 etc
+
+4. copy necessary resources and java classes
+
+5. change all references to package name, app name, strings, drawables (eg. launcher icon)
+	(in java classes, layout files, manifest file, string file)
+
+6. in some face processing peojects you might add other necessary .jar files eg: 
+	- vecmath-1.5.2.jar (for certain geometrical transformations eg. Point2f class)
